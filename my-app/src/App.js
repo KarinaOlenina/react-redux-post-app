@@ -1,7 +1,10 @@
 
 import './App.css';
-import Likes from "./Likes";
 import airBalloon from "./assets/post.jpeg";
+import Likes from "./Likes";
+import Title from "./Title";
+
+
 
 
 function App() {
@@ -11,6 +14,7 @@ function App() {
           <div className="card">
             <div className="card-image">
               <img src={airBalloon} alt="Air balloon"/>
+                <Title/>
                 <Likes/>
             </div>
           </div>

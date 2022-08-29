@@ -1,8 +1,8 @@
 import {connect} from "react-redux";
-import {likesReducer} from "./redux/likesReducer";
+import {incrementLikes, decrementLikes} from "./redux/actions";
 
 const Likes = (props) => {
-    console.log('render => ', props);
+    // console.log('render => ', props);
 
     return (
         <div className={'button-controls'}>
@@ -15,7 +15,7 @@ const Likes = (props) => {
 /* 'mapStateToProps' - вызывается каждый раз при изменении состояния хранилища.
   Он получает все состояние хранилища и должен возвращать объект данных, необходимых этому компоненту.*/
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps => ', state);
+    // console.log('mapStateToProps => ', state);
     const {likesReducer} = state;
     return {
         likes: likesReducer.likes,
@@ -28,16 +28,8 @@ const mapDispatchToProps = (dispatch) => {
 
     return {
         // dispatching plain actions
-        onIncrementLikes: () => {
-            console.log('click');
-            const action = {type: 'INCREMENT'};
-            dispatch(action);
-        },
-        onDecrementLikes: () => {
-            console.log('click');
-            const action = {type: 'DECREMENT'};
-            dispatch(action);
-        },
+        onIncrementLikes: () => dispatch(incrementLikes()),
+        onDecrementLikes: () => dispatch(decrementLikes()),
     }
 }
 

@@ -4,7 +4,7 @@
 .wrap {
   position: relative;
   max-width: 1200px;
-  margin: 140px auto 0;
+  margin: 7% auto;
 }
 .card {
   display: flex;
