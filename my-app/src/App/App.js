@@ -1,8 +1,9 @@
 
 import './App.css';
-import airBalloon from "./assets/post.jpeg";
-import Likes from "./Likes";
-import Title from "./Title";
+import airBalloon from "../assets/post.jpeg";
+import Likes from "../components/Likes";
+import Title from "../components/Title";
+import Comments from "../components/Comments";
 
 
 
@@ -17,6 +18,7 @@ function App() {
                 <Title/>
                 <Likes/>
             </div>
+              <Comments/>
           </div>
         </div>
       </div>

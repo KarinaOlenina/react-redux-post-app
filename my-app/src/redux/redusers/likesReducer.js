@@ -1,4 +1,4 @@
-import {DECREMENT, INCREMENT} from "./types";
+import {DECREMENT, INCREMENT} from "../actions/types";
 
 
 const initialState = {

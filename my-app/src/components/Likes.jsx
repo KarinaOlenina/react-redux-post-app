@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {incrementLikes, decrementLikes} from "./redux/actions";
+import {incrementLikes, decrementLikes} from "../redux/actions/actions";
 
 const Likes = (props) => {
     // console.log('render => ', props);

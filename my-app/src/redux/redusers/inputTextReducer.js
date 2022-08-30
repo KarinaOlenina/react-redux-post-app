@@ -1,4 +1,4 @@
-import {INPUT_TEXT} from "./types";
+import {INPUT_TEXT} from "../actions/types";
 
 
 const initialState = {
