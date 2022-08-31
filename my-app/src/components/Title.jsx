@@ -3,7 +3,7 @@ import {inputText} from "../redux/actions/actions";
 
 
 const Title = (props) => {
-    console.log('Title props =>', props);
+    // console.log('Title props =>', props);
 
     const text = useSelector( state => {
        const { inputTextReducer } = state;
@@ -14,7 +14,7 @@ const Title = (props) => {
     const dispatch = useDispatch();
 
     const handleChange = (event) => {
-        console.log('handleChange text => ', event.target.value);
+        // console.log('handleChange text => ', event.target.value);
         dispatch(inputText(event.target.value))
     }
 

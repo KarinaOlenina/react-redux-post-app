@@ -6,7 +6,7 @@ const initialState = {
 }
 
 export const inputTextReducer = (state = initialState, action) => {
-    console.log('inputTextReducer => ', action);
+    // console.log('inputTextReducer => ', action);
 
     switch (action.type) {
 

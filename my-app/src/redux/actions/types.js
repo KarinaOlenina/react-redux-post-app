@@ -2,5 +2,11 @@ export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const INPUT_TEXT = 'INPUT_TEXT';
 export const COMMENT_CREATE = 'COMMENT_CREATE';
+export const COMMENT_UPDATE = 'COMMENT_UPDATE';
+export const COMMENT_DELETE = 'COMMENT_DELETE';
+
+export const COMMENT_LOAD = 'COMMENT_LOAD';
+export const LOADER_DISPLAY_0N = 'LOADER_DISPLAY_0N';
+export const LOADER_DISPLAY_0FF = 'LOADER_DISPLAY_0FF';
 
 /*Хранит типы actions*/

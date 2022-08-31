@@ -1,14 +1,24 @@
-import {useState} from "react";
-import {useSelector, useDispatch} from "react-redux";
+import {useState, useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import uniqid from 'uniqid';
 
 import SingleComment from "./SingleComment";
-import {commentCreate} from "../redux/actions/actions";
+import {commentCreate, commentsLoad} from "../redux/actions/actions";
 
 
 const Comments = (props) => {
     // console.log('Comments props=> ', props);
     const [textComment, setTextComment] = useState('');
+
+    /* useSelector() - это хук для mapStateToProps (вызывается каждый раз при изменении состояния хранилища.
+       Он получает ВСЕ состояние хранилища и должен возвращать объект данных, необходимых этому компоненту)*/
+    const comments = useSelector(state => {
+        console.log('redux state => ', state);
+        const { commentReducer } = state;
+        return commentReducer.comments;
+    });
+    console.log('comments => ', comments);
+
     const dispatch = useDispatch();
 
 
@@ -18,10 +28,14 @@ const Comments = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('submit textComment => ', textComment);
         const id = uniqid();
         dispatch(commentCreate(textComment, id)); /* отправляет данные в action - commentCreate*/
+        setTextComment('');
     }
+
+    useEffect(() => {
+dispatch(commentsLoad())
+    },[])
 
     return (
         <div className={'card-comments'}>
@@ -29,7 +43,9 @@ const Comments = (props) => {
                 <input type={'text'} value={textComment} onChange={handleInput}/>
                 <input type={'submit'} hidden/>
             </form>
-            <SingleComment/>
+            {!!comments.length && comments.map(comment => {
+               return <SingleComment key={comment.id} data={comment}/>
+            })}
         </div>
     )
 }
