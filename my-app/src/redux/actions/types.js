@@ -8,5 +8,7 @@ export const COMMENT_DELETE = 'COMMENT_DELETE';
 export const COMMENT_LOAD = 'COMMENT_LOAD';
 export const LOADER_DISPLAY_0N = 'LOADER_DISPLAY_0N';
 export const LOADER_DISPLAY_0FF = 'LOADER_DISPLAY_0FF';
+export const ERROR_DISPLAY_0N = 'ERROR_DISPLAY_0N';
+export const ERROR_DISPLAY_0FF = 'ERROR_DISPLAY_0FF';
 
 /*Хранит типы actions*/

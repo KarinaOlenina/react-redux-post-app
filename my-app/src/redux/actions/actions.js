@@ -1,4 +1,16 @@
-import {COMMENT_CREATE, COMMENT_DELETE, COMMENT_UPDATE, DECREMENT, INCREMENT, INPUT_TEXT, COMMENT_LOAD} from "./types";
+import {
+    COMMENT_CREATE,
+    COMMENT_DELETE,
+    COMMENT_LOAD,
+    COMMENT_UPDATE,
+    DECREMENT,
+    ERROR_DISPLAY_0FF,
+    ERROR_DISPLAY_0N,
+    INCREMENT,
+    INPUT_TEXT,
+    LOADER_DISPLAY_0FF,
+    LOADER_DISPLAY_0N,
+} from "./types";
 
 
 export const incrementLikes = () => {
@@ -50,13 +62,51 @@ export const commentDelete = (id) => {
     }
 }
 
+export const loaderOn = () => {
+    return {
+        type: LOADER_DISPLAY_0N,
+    }
+}
+
+export const loaderOff = () => {
+    return {
+        type: LOADER_DISPLAY_0FF,
+    }
+}
+
+export const errorOn = (text) => {
+    return dispatch => {
+        dispatch({
+            type: ERROR_DISPLAY_0N,
+            text,
+        });
+        setTimeout(() => {
+            dispatch(errorOff())
+        }, 2000)
+    }
+
+}
+
+export const errorOff = () => {
+    return {
+        type: ERROR_DISPLAY_0FF,
+    }
+}
+
 export const commentsLoad = () => {
     return async dispatch => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=10');
-        const jsonData = await response.json();
-        dispatch({
-            type: COMMENT_LOAD,
-            data: jsonData,
-        })
+        try {
+            dispatch(loaderOn());
+            const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=10');
+            const jsonData = await response.json();
+            dispatch({
+                type: COMMENT_LOAD,
+                data: jsonData,
+            })
+            dispatch(loaderOff());
+        } catch (err) {
+            dispatch(errorOn('Возникла ошибка при получении данных!'));
+            dispatch(loaderOff());
+        }
     }
 }

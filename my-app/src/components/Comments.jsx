@@ -13,11 +13,11 @@ const Comments = (props) => {
     /* useSelector() - это хук для mapStateToProps (вызывается каждый раз при изменении состояния хранилища.
        Он получает ВСЕ состояние хранилища и должен возвращать объект данных, необходимых этому компоненту)*/
     const comments = useSelector(state => {
-        console.log('redux state => ', state);
+        // console.log('redux state => ', state);
         const { commentReducer } = state;
         return commentReducer.comments;
     });
-    console.log('comments => ', comments);
+    // console.log('comments => ', comments);
 
     const dispatch = useDispatch();
 

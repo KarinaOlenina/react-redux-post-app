@@ -8,7 +8,7 @@ const initialState = {
 /*reducer принимает дефолтное состояние и action, на основе полученных данных создает новое состояние*/
 
 export const commentReducer = (state = initialState, action) => {
-    console.log('commentReducer => ', action);
+    // console.log('commentReducer => ', action);
 
     switch (action.type) {
 
