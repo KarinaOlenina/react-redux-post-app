@@ -1,6 +1,6 @@
 import Loader from 'react-loader-spinner';
 import {useSelector} from "react-redux";
-import {appReducer} from "../redux/redusers/appReducer";
+import {appReducer} from "../redux/reducers/appReducer";
 
 const Spin = (props) => {
 
